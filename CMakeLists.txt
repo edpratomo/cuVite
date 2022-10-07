@@ -50,7 +50,7 @@ if(${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
     set(GCC 1)
 endif()
 
-set(POWER 1)
+set(POWER 0)
 
 if(INTEL_CXX)
     add_definitions(-xhost)
@@ -104,7 +104,7 @@ set(CMAKE_CXX_LINK_FLAGS ${CMAKE_CXX_LINK_FLAGS} ${MPI_LINK_FLAGS})
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS} -lm")
 
 set ( FILE_CONVERTER_FOLDER converters)
-add_subdirectory( ${FILE_CONVERTER_FOLDER} )
+#add_subdirectory( ${FILE_CONVERTER_FOLDER} )
 
 set( TARGET_GRAPH_CLUSTERING  graphClustering )
 
@@ -126,8 +126,8 @@ CUDA_ADD_LIBRARY( cuda_louvain STATIC
     -Xcompiler -fopenmp
     #-Xcompiler -qsmp=omp
     -Xcompiler -fpermissive
-    -Xcompiler -mcpu=power9
-    -Xcompiler -mtune=power9
+    #-Xcompiler -mcpu=power9
+    #-Xcompiler -mtune=power9
     #-Xcompiler -qthreaded
     #DEBUG -g -G
 )
